@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>俄罗斯方块</title>
+    <style>
+      table {
+        margin: 30px auto;
+        background-color: grey;
+        /* 使边框合并成一个单一的边框 */
+        border-collapse: collapse;
+      }
+
+      /* 每一个单元格的样式 */
+      td {
+        height: 30px;
+        width: 30px;
+        border: 1px solid rgb(36, 27, 27);
+      }
+
+      td.c1 {
+        background-color: red;
+      }
+
+      td.c2 {
+        background-color: orange;
+      }
+
+      td.c3 {
+        background-color: yellow;
+      }
+
+      td.c4 {
+        background-color: green;
+      }
+
+      td.c5 {
+        background-color: #55f1d7;
+      }
+
+      td.c6 {
+        background-color: blue;
+      }
+
+      td.c7 {
+        background-color: purple;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table id="table">
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+
+    <script>
+      // 第一步：得到table表格并起名为table
+      var table = document.getElementById("table");
+      // 第二步：接下来的想法是给表格中的某一个格子染色，需要按序号选择元素
+      // table.getElementsByTagName('tr')[2].getElementsByTagName('td')[3].className='c1';
+      // 第三部  设置一个方块 如何让这个方块显示在屏幕上，就用和第二步一样的方法，
+      // 但是每次都写这么多代码，效率较低，这时候就要封装函数
+      // 封装函数区域--------------------------------------------------------------------------------------------------------------------
+      // 封装个随机砖块函数
+      function randomblock() {
+        var allblock = [
+          [
+            [0, 1, 0, 0],
+            [0, 1, 0, 0],
+            [0, 1, 0, 0],
+            [0, 1, 0, 0]
+          ],
+          [
+            [0, 2, 0, 0],
+            [0, 2, 0, 0],
+            [0, 2, 2, 0],
+            [0, 0, 0, 0]
+          ],
+          [
+            [3, 3, 3, 0],
+            [0, 3, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0]
+          ],
+          [
+            [0, 0, 0, 0],
+            [0, 4, 4, 0],
+            [0, 4, 4, 0],
+            [0, 0, 0, 0]
+          ],
+          [
+            [5, 5, 0, 0],
+            [0, 5, 5, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0]
+          ],
+          [
+            [0, 6, 6, 0],
+            [6, 6, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0]
+          ],
+          [
+            [0, 7, 0, 0],
+            [0, 7, 0, 0],
+            [7, 7, 0, 0],
+            [0, 0, 0, 0]
+          ]
+        ];
+        var n = parseInt(Math.random() * 7);
+        block = allblock[n];
+      }
+      // 第四步 封装染色函数
+      function ranse(a, b, color) {
+        table.getElementsByTagName("tr")[a].getElementsByTagName("td")[
+          b
+        ].className = "c" + color;
+      }
+      // 第五步 给方块染色 利用for循环遍历block数组 通过行列来调整方块的位置
+      function huablock() {
+        for (var i = 0; i < 4; i++) {
+          for (var j = 0; j < 4; j++) {
+            if (block[i][j] != 0) {
+              ranse(i + hang, j + lie, block[i][j]);
+            }
+          }
+        }
+      }
+      // 第六步 设置一个地图的砖块
+
+      // 第七步 通过染色函数来把map显示在网页上，利用for循环遍历
+      function huamap() {
+        for (var i = 0; i < 20; i++) {
+          for (var j = 0; j < 12; j++) {
+            if (map[i][j] != 0) {
+              ranse(i, j, map[i][j]);
+            }
+          }
+        }
+      }
+      //   第九步 封装一个清屏函数
+      function qingping() {
+        for (var i = 0; i < 20; i++) {
+          for (var j = 0; j < 12; j++) {
+            ranse(i, j, 0);
+          }
+        }
+      }
+      //  封装一个旋转函数
+      function rotate() {
+        var result = [[], [], [], []];
+
+        for (var i = 0; i < 4; i++) {
+          for (var j = 0; j < 4; j++) {
+            result[j][3 - i] = block[i][j];
+          }
+        }
+        var canrotate = true;
+
+        for (var i = 0; i < 4; i++) {
+          for (var j = 0; j < 4; j++) {
+            if (block[i][j] != 0 && map[i + hang][j + lie] != 0) {
+              canrotate = false;
+            }
+          }
+        }
+        if (canrotate) {
+          block = result;
+        }
+      }
+      // --------------------------------------------------------------------------------------------------------------------------------
+      // 第八步  设置一个定时器  把之前给block和map染色的过程封装成函数放进定时器中
+      var hang = 0;
+      var lie = 4;
+      var block;
+      var map = [
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+      ];
+      randomblock();
+      huablock();
+      huamap();
+      // 定时器区域--------------------------------------------------------------------------------------------------------------------------------
+      setInterval(function() {
+        //   解决能否下落问题及不能下落之后的地图镶嵌问题
+        var nengfouxialuo = true;
+        for (var i = 0; i < 4; i++) {
+          for (var j = 0; j < 4; j++) {
+            if (block[i][j] != 0 && map[i + hang + 1][lie + j] != 0) {
+              nengfouxialuo = false;
+            }
+          }
+        }
+        if (nengfouxialuo) {
+          hang++;
+        } else {
+          for (var i = 0; i < 4; i++) {
+            for (var j = 0; j < 4; j++) {
+              if (block[i][j] != 0) {
+                map[i + hang][lie + j] = block[i][j];
+              }
+            }
+          }
+          randomblock();
+          hang = 0;
+          lie = 4;
+        }
+        qingping();
+        huamap();
+        huablock();
+      }, 500);
+      // ---------------------------------------------------------------------------------------------------------------------------------
+      // 事件监听
+      document.onkeydown = function(e) {
+        if (e.keyCode == 38) {
+          rotate();
+        } else if (e.keyCode == 37) {
+          var canleft = true;
+          for (var i = 0; i < 4; i++) {
+            for (var j = 0; j < 4; j++) {
+              if (block[i][j] != 0 && map[i + hang][j + lie - 1] != 0) {
+                canleft = false;
+              }
+            }
+          }
+
+          if (canleft) {
+            lie--;
+          }
+        } else if (e.keyCode == 39) {
+          var canright = true;
+          for (var i = 0; i < 4; i++) {
+            for (var j = 0; j < 4; j++) {
+              if (block[i][j] != 0 && map[i + hang][j + lie + 1] != 0) {
+                canright = false;
+              }
+            }
+          }
+          if (canright) {
+            lie++;
+          }
+        } else if (e.keyCode == 40) {
+          while (true) {
+            var nengfouxialuo = true;
+            for (var i = 0; i < 4; i++) {
+              for (var j = 0; j < 4; j++) {
+                if (block[i][j] != 0 && map[i + hang + 1][lie + j] != 0) {
+                  nengfouxialuo = false;
+                }
+              }
+            }
+            if (nengfouxialuo) {
+              hang++;
+            } else {
+              break;
+            }
+          }
+        } 
+        qingping();
+        huablock();
+        huamap();
+      };
+    </script>
+  </body>
+</html>
